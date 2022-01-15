@@ -1,0 +1,104 @@
+.footer {
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+    position: relative;
+    background-color: $color-background;
+    min-height: 65vh;
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+    margin-top: -13rem;
+
+    @include responsive(tab-land) {
+        min-height: 62vh;
+    }
+
+    @include responsive(tab-port) {
+        min-height: 50vh;
+    }
+
+    @include responsive(phone) {
+        min-height: 45vh;
+    }
+    &--white {
+        background-color: $color-grey-light;
+    }
+    &__logo-box {
+        display: block;
+        text-align: center;
+
+        @include responsive(tab-land) {
+        }
+    }
+    &__logo{
+        height: 20rem;
+
+        @include responsive(tab-port) {
+            height: 15rem;
+        }
+    }
+
+    &__text-box {
+        padding:1rem;
+        width: 50%;
+        text-align: center;
+        border-top: 1px solid $color-grey;
+        margin-left: 2rem;
+
+        @include responsive(tab-land) {
+            width: 85%;
+        }
+    }
+
+    &__social-link {
+        display: inline-block;
+        :not(:last-child){
+            margin-right: 2rem;
+        }
+    }
+
+    &__contact{
+        padding: 2rem 0;
+
+        @include responsive(tab-port) {
+            padding: 1rem 0;
+        }
+    }
+    &__link {
+        &:link,
+        &:visited{
+            font-size: 1.4rem;
+            text-decoration: none;
+            color: $color-grey-light;
+            display: inline-block;
+            transition: all .2s;
+        }
+        &:not(:last-child) {
+            margin-right: 2rem;
+        }
+
+        &:hover,
+        &:active {
+            background-image: linear-gradient(to right, $color-yellow, $color-green-blue);
+            -webkit-background-clip: text;
+            color:transparent;
+            box-shadow: 0 1rem 2rem rgba($color-black, .4);
+            transform: rotate(5deg) scale(1.1);
+        }
+    }
+    .subscribe {
+        margin-right: 2rem;
+        border-top: 1px solid $color-grey;
+        width: 30rem;
+        text-align: center;
+        margin: 0 auto;
+
+        @include responsive(phone) {
+           padding: 2rem;
+           padding-top: 0;
+        }
+
+        &__form {
+            padding-top: 2rem;
+            width: 100%;
+        }
+    }
+}

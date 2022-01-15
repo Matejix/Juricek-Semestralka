@@ -1,0 +1,137 @@
+.table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: $color-white;
+
+    @include responsive(tab-port) {
+        display: block;
+        width: 100%;
+    }
+
+    &__head,
+    &__body,
+    &__heading {
+        @include responsive(tab-port) {
+            display: block;
+        }
+    }
+
+    &__head {
+        @include responsive(tab-port) {
+            float: left;
+        }
+    }
+
+    &__body {
+        @include responsive(tab-port) {
+            width: auto;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        & tr {
+            @include responsive(tab-port) {
+                display: table-cell;
+            }
+        }
+
+        & tr:nth-child(odd){
+            @include responsive(tab-port) {
+                background: none;
+            }
+        }
+
+        & .table__content {
+            @include responsive(tab-port) {
+                display: block;
+                text-align: center;
+            }
+        }
+    }
+
+    &__heading,
+    &__content {
+        text-align: center;
+        padding: 8px;
+
+        @include responsive(tab-port) {
+            padding: 20px .625em .625em .625em;
+            height: 60px;
+            vertical-align: middle;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 120px;
+            font-size: 13px;
+            text-overflow: ellipsis;
+        }
+    }
+
+    &__content {
+        border-right: 1px solid rgba($color-grey-light, .8);
+        font-size: 2rem;
+
+        &--green{
+            color: $color-green-light;
+        }
+
+        &--green2{
+            color: $color-green-blue;
+        }
+
+        &--blue{
+            color: $color-blue;
+        }
+
+        &--red{
+            color: $color-coral-light;
+        }
+    }
+
+    & tr:nth-child(even) {
+        background-color: $color-grey-light;
+
+        @include responsive(tab-port) {
+            background: transparent;
+        }
+    }
+
+    & tr .table__content:nth-child(odd){
+        @include responsive(tab-port) {
+            background: #F8F8F8;
+            border-right: 1px solid #E6E4E4;
+        }
+    }
+
+    & tr .table__content:nth-child(even){
+        @include responsive(tab-port) {
+            border-right: 1px solid #E6E4E4;
+        }
+    }
+
+    &__heading {
+        color: $color-white;
+        background: $color-green-blue;
+
+        @include responsive(tab-port) {
+            text-align: left;
+            border-bottom: 1px solid #f7f7f9;
+            }
+
+        &:last-child{
+            @include responsive(tab-port) {
+                border-bottom: none;
+            }
+        }
+
+        &:nth-child(odd) {
+            background-color: $color-background-lighter;
+        }
+    }
+}

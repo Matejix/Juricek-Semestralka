@@ -1,0 +1,185 @@
+.about {
+    background-color: rgba($color-grey-blue, .05);
+    padding: 15rem 0;
+    margin-top: -17vh;
+
+    @include responsive(phone) {
+        padding: 20rem 0;
+     }
+     &__wrap {
+         position: relative;
+         min-height:fit-content;
+         width: 80%;
+         margin: 0 auto;
+     }
+     .heading-box {
+         position: absolute;
+         top: 10%;
+         left: 50%;
+         transform: translate(-50%,-50%);
+         text-align: center;
+     }
+
+     &__text-box {
+         padding-top: 20rem;
+         display: flex;
+         flex-direction: column;
+     }
+     &__text{
+         padding: 5rem 6rem;
+         width: 80%;
+         margin-bottom: 5rem;
+         border-radius: 3px;
+         background-color: rgba($color-white,.8);
+         transition: transform .3s;
+         position: relative;
+
+         @include responsive(tab-port) {
+            width: 95%;
+         }
+
+         @include responsive(phone) {
+            width: 100%;
+         }
+         &--left {
+             align-self: flex-start;
+            text-align: left;
+            clip-path: polygon(0 0, 85% 0, 100% 50%, 100% 50%, 85% 100%, 0 100%);
+            padding-right: 8rem;
+            
+            animation-name: moveInLeft;
+            animation-duration: 1s;
+            animation-timing-function: ease-out;
+        }
+
+         &--right {
+             align-self: flex-end;
+             text-align: right;
+             padding-left: 8rem;
+             clip-path: polygon(0 50%, 15% 0, 100% 0, 100% 100%, 15% 100%, 0 50%);
+             
+            animation-name: moveInRight;
+            animation-duration: 1s;
+            animation-timing-function: ease-out;
+         }
+
+         &:hover {
+            transform: translateY(-5px);
+            box-shadow: 2rem 4rem 2rem rgba($color-black, .4);
+         }
+     }
+
+     &__conclusion{
+         position: relative;
+         background-image: linear-gradient(to right bottom, rgba($color-black, 0.8), rgba($color-black, 0.8)), url("/images/animal4-big.jpg");
+         background-size: cover;
+         background-attachment: fixed;
+         background-repeat: no-repeat;
+         min-height: 90vh;
+         clip-path: polygon(0 15%, 100% 0, 100% 95%, 0 100%);
+         margin-top: -14vh;
+
+        @include responsive(tab-port){
+            min-height: 100vh;
+        }
+        &-boxes {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            @include responsive(tab-port) {
+                width: 95%;
+                display: block;
+             }
+
+        }
+     }
+    
+     &__box {
+         position: relative;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         height: 100%;
+         width: 30rem;
+         background-color: $color-background;
+         box-shadow: 0 2rem 2rem rgba($color-black, .8);
+         padding: 4rem;
+         border-radius: 3px;
+         padding-top: 0;
+         opacity: .8;
+
+            animation-name: moveInBottom;
+            animation-duration: 1s;
+            animation-timing-function: ease-out;
+            
+         transition: all .3s;
+
+        
+         &:not(:last-child) {
+            margin-right: 2rem;
+
+            @include responsive(tab-port) {
+                margin:0 auto;
+                
+                margin-bottom: 2rem;
+            }
+        }
+
+         &:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 2rem 4rem rgba($color-black, .8);
+         }
+
+         @include responsive(tab-port) {
+            width: 80%;
+            padding: 0 2rem;
+            margin: 0 auto;
+         }
+     }
+
+     &__box-icon {
+         font-size: 7rem;
+         font-weight:lighter;
+
+         @include responsive(tab-port) {
+             font-size: 4rem;
+         }
+     }
+
+     &__box-content {
+         font-size: $default-font-size;
+         text-align: center;
+     }
+
+     &__box-text {
+         line-height: 3rem
+     }
+
+     &__box-summary {
+         padding: 1rem;
+         letter-spacing: .1rem;
+         color:$color-grey-light;
+
+         .box-summary__counter {
+             text-transform: uppercase;
+
+             &--number {
+                 display: block;
+                 font-weight: 700;
+                 font-size: 4rem;
+                 @include gradientColor;
+
+                 @include responsive(tab-port) {
+                     display: inline-block;
+                     font-size: 3rem;
+                     margin-right: 1rem;
+                 }
+             }
+         }
+     }
+
+}

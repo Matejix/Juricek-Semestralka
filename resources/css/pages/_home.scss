@@ -1,0 +1,11 @@
+.new-posts {
+    padding: 20rem 0;
+    min-height: 100vh;
+    background-color: rgba($color-grey-blue, .05);
+    margin-top: -17vh;
+
+    @include responsive(tab-land) {
+        padding: 25rem 2rem;
+        min-height: 70vh;
+    }
+}

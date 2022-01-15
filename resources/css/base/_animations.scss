@@ -1,0 +1,109 @@
+@keyframes moveInLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+
+    80%{
+        transform: translateX(1rem);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0%{
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+
+    80%{
+        transform: translateX(-1rem);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom{
+    0%{
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+    100%{
+        opacity: .8;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveArrowRight{
+    0%{
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    50%{
+        transform: translateX(2px) translateY(-50%);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+@keyframes moveArrowLeft{
+    0%{
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    50%{
+        transform: translateX(-100%) translateY(-50%);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+@keyframes moveArrowTop{
+    0%{
+        transform: translateY(0) rotate(90deg);
+    }
+
+    50%{
+        transform: translateY(-2rem) rotate(90deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(90deg);
+    }
+}
+
+@keyframes moveArrowDown{
+    0%{
+        transform: translateY(0) rotate(90deg);
+    }
+
+    50%{
+        transform: translateY(2rem) rotate(90deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(90deg);
+    }
+}
+
+@keyframes justAppear {
+    0%{
+        opacity:0;
+    }
+
+    100%{
+        opacity:1;
+    }
+}

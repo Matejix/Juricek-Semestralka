@@ -1,0 +1,101 @@
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #777;
+}
+
+.heading-primary {
+    color:$color-grey-darker;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    &--main {
+        display: block;
+        font-size: 4rem;
+        letter-spacing: 4rem;
+        font-weight: 400;
+
+        @include responsive(tab-land) {
+            
+            letter-spacing: 2rem;
+        }
+    }
+    &--sub{
+        display: block;
+        font-size: 2rem;
+        letter-spacing: 1.35rem;
+        font-weight: 700;
+
+        @include responsive(tab-land) {
+            
+            letter-spacing: 1rem;
+        }
+
+    }
+}
+
+.heading-secondary {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.1rem;
+    white-space: nowrap;
+
+    @include responsive(phone) {
+        letter-spacing: .8rem;
+    }
+}
+
+.about {
+    &__text-content{
+        font-size: $default-font-size;
+        line-height: 3.5rem;
+    }
+}
+
+.heading-tertiary{
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    @include gradientColor;
+    letter-spacing: 2px;
+}
+
+.footer {
+
+    &__social-link {
+        font-size: 3rem;
+        @include gradientColor;
+        padding: 1rem;
+
+        @include responsive(phone) {
+            font-size: 2rem;
+        }
+
+        & i:hover {
+            transform: translateY(-1px);
+            color: $color-yellow-lighter;
+            cursor: pointer;
+        }
+
+        & i:active {
+            transform: translateY(0px);
+            cursor: pointer;
+        }
+    }
+
+    &__kontakt-info {
+        color:$color-white;
+        padding: 1rem;
+        font-size: 1.5rem;
+    }
+
+    @include responsive(phone) {
+        font-size: 1rem;
+    }
+
+    &__copyright-text {
+            font-size: 1.2rem;
+    }
+}

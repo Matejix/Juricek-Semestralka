@@ -1,0 +1,200 @@
+.admin-body {
+    padding: 0;
+}
+.admin{
+    display: flex;
+    position: relative;
+
+    &__add-btn {
+        position: absolute !important;
+        top: 2rem !important;
+        right: 2rem !important;
+    }
+
+    &__logo-box {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    &__logo {
+        height: 15rem;
+    }
+
+    &__menu-bar {
+        background-color: $color-background;
+        min-width: 30rem;
+        min-height: 100vh;
+    }
+
+    &__list-box {
+        padding: 2rem 3rem;
+    }
+
+    &__list {
+        list-style: none;
+        text-align: center;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    &__list-item {
+        line-height: 4rem;
+
+        &:not(:last-child) {
+            margin-bottom:  2rem;
+            border-bottom: 1px solid $color-yellow;
+        }
+
+        & a {
+            display: inline-block;
+            padding: 0rem 1.5rem;
+            font-size: $default-font-size;
+            text-transform: uppercase;
+            text-decoration: none;
+            color:$color-white;
+            
+            transform: all 0.3s;
+
+            
+            &:hover,
+            &:active {
+                transform: translateY(-2px);
+                background-image: linear-gradient(to right, $color-yellow, $color-green-blue);
+                -webkit-background-clip: text;
+                color:transparent;
+            }
+
+            &:active {
+                transform: translateY(0px);
+                color:$color-white;
+            }
+        }
+    }
+
+    &__content-box {
+        background-color:rgba($color-grey-blue, .05);
+        padding: 5rem;
+        width: 100%;
+    }
+    &__article{
+        display: none;
+        box-shadow: 0 3.5rem 4rem rgba( 0, 0, 0, 0.2 );
+
+        &:before {
+            @include responsive(tab-port) {
+                content: "Scroll horizontally >";
+                display: block;
+                text-align: right;
+                font-size: 11px;
+                color: white;
+                padding: 0 0 10px;
+            }
+        }
+
+        &:target {
+            display: block;
+        }
+    }
+
+    &__animal{
+        display: none;
+        box-shadow: 0 3.5rem 4rem rgba( 0, 0, 0, 0.2 );
+
+        &:before {
+            @include responsive(tab-port) {
+                content: "Scroll horizontally >";
+                display: block;
+                text-align: right;
+                font-size: 11px;
+                color: white;
+                padding: 0 0 10px;
+            }
+        }
+
+        &:target {
+            display: block;
+        }
+    }
+
+    &__gallery {
+        display: none;
+        box-shadow: 0 3.5rem 4rem rgba( 0, 0, 0, 0.2 );
+
+        &:before {
+            @include responsive(tab-port) {
+                content: "Scroll horizontally >";
+                display: block;
+                text-align: right;
+                font-size: 11px;
+                color: white;
+                padding: 0 0 10px;
+            }   
+        }
+
+        &:target {
+            display: block;
+        }
+    }
+
+    &__comment{
+        display: none;
+        box-shadow: 0 3.5rem 4rem rgba( 0, 0, 0, 0.2 );
+
+        &:before {
+            @include responsive(tab-port) {
+                content: "Scroll horizontally >";
+                display: block;
+                text-align: right;
+                font-size: 11px;
+                color: white;
+                padding: 0 0 10px;
+            }   
+        }
+
+        &:target {
+            display: block;
+        }
+    }
+
+    &__subscriber{
+        display: none;
+        box-shadow: 0 3.5rem 4rem rgba( 0, 0, 0, 0.2 );
+
+        &:before {
+            @include responsive(tab-port) {
+                content: "Scroll horizontally >";
+                display: block;
+                text-align: right;
+                font-size: 11px;
+                color: white;
+                padding: 0 0 10px;
+            }   
+        }
+
+        &:target {
+            display: block;
+        }
+    }
+
+    &__donator{
+        display: none;
+        box-shadow: 0 3.5rem 4rem rgba( 0, 0, 0, 0.2 );
+
+        &:before {
+            @include responsive(tab-port) {
+                content: "Scroll horizontally >";
+                display: block;
+                text-align: right;
+                font-size: 11px;
+                color: white;
+                padding: 0 0 10px;
+            }   
+        }
+
+        &:target {
+            display: block;
+        }
+    }
+
+    
+}

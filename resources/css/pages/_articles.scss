@@ -1,0 +1,103 @@
+.articles{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 20rem 0;
+    min-height: 100vh;
+    background-color: rgba($color-grey-blue, .05);
+    margin-top: -17vh;
+
+    @include responsive(phone) {
+        padding-top: 25rem;
+    }
+    
+    &__heading-primary {
+        display: block;
+        text-align: center;
+    }
+
+    &__box {
+        display: flex;
+        position: relative;
+
+        @include responsive(tab-land) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__list {
+        &>ul {
+            display: flex;
+           list-style: none;
+
+           @include responsive(tab-land) {
+            flex-direction: column;
+        }
+
+           li:not(:last-child) {
+            margin-right: 2rem;
+
+            @include responsive(tab-land) {
+                margin: 0;
+                margin-bottom: 2rem;
+            }
+           }
+        }
+    }
+
+    &__left-arrow,
+    &__right-arrow {
+        font-size: 4rem;
+        cursor: pointer;
+        padding: 1rem 2rem;
+    }
+
+    &__left-arrow{
+        position: relative;
+        top: 10rem;
+        left: 0rem;
+
+        @include responsive(tab-land) {
+            position: relative;
+            transform: none;
+            top: 0;
+            left: 0;
+            transform: rotate(90deg);
+        }
+
+        &:hover{
+            @include gradientColor;
+            
+
+            @include responsive(tab-land) {
+                @include gradientColor;
+                
+            }
+       } 
+    }
+
+    &__right-arrow {
+        position: relative;
+        top: 10rem;
+        right: 0rem;
+
+        @include responsive(tab-land) {
+            position: relative;
+            transform: none;
+            top: 0;
+            left: 0;
+            transform: rotate(90deg);
+        }
+
+       &:hover{
+            @include gradientColor;
+           
+
+            @include responsive(tab-land) {
+                @include gradientColor;
+                
+            }
+       } 
+    }
+}

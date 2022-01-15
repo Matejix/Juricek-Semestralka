@@ -1,0 +1,115 @@
+.comment {
+    &__box {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        padding: 3rem;
+        background-color: rgba($color-white, .4);
+        border-radius: 3px;
+        max-width: 70%;
+        backface-visibility: hidden;
+        transform: skewX(-12deg);
+        
+        &:not(:last-child) {
+            margin-bottom: 5rem;
+        }
+
+        @include responsive(tab-port) {
+            max-width: 90%;
+            transform: skewX(0);
+        }
+        p {
+            font-size: $default-font-size;
+            color:$color-grey-light;
+        }
+
+        &:hover .comment__caption {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    
+        &:hover .comment__img {
+            transform:scale(1.5);
+            filter: blur(3px) brightness(80%);
+        }
+    }
+
+    &__shape {
+        padding: 0;
+        margin: 3rem;
+        width: 18rem;
+        height: 15rem;
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem) skewX(12deg);
+        position: relative;
+        
+
+        @include responsive(tab-port) {
+            transform: translateX(-3rem) skewX(0);
+        }
+    }
+
+    &__img {
+        height: 100%;
+        transform: scale(1.6);
+        transition: all .5s;
+    }
+
+    &__text {
+        width: 100%;
+        transform: skewX(12deg);
+
+        @include responsive(tab-port) {
+            transform: skewX(0);
+        }
+    }
+
+    &__caption {
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, 20%) ;
+        color:$color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        transition: all .5s;
+        backface-visibility: hidden;
+    }
+    &__icon {
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+        font-size: 4rem;
+        transform: skew(12deg);
+        transition: all .3s;
+
+        @include responsive(tab-port) {
+            transform: skewX(0);
+        }
+
+        &--edit{
+            display: inline-block;
+            color: $color-green-blue;
+
+            &:hover {
+                transform: translateY(-1px) scale(1.1);
+                color:$color-green-blue-lighter;
+            }
+        }
+
+        &--delete{
+            display: inline-block;
+            color: $color-coral-dark;
+
+            &:hover {
+                transform: translateY(-1px) scale(1.1);
+                color:$color-coral-light;
+            }
+        }
+    }
+}

@@ -1,0 +1,106 @@
+.btn {
+        &,
+        &:link,
+        &:visited {
+            display: inline-block;
+            font-size: $default-font-size;
+            color: $color-white;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 1rem 3rem;
+            border-radius: 10rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            position: relative;
+
+            // when element is <button>
+
+            outline: none;
+            border: none;
+        }
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0.5rem 4rem rgba($color-black, 0.2);
+
+            &::after {
+                transform: scaleX(1.4) scaleY(1.6);
+                opacity: 0;
+            }
+        }
+        &:active {
+            transform: translateY(0px);
+            box-shadow: 0 0.5rem 2rem rgba($color-black, 0.4);
+        }
+
+        &--green-blue{
+            background-color: $color-green-blue;
+
+            &::after {
+                background-color: $color-green-blue;
+            }
+        }
+
+        &--green{
+            background-color: $color-green-dark;
+
+            &::after {
+                background-color: $color-green-dark;
+            }
+        }
+
+        &--coral{
+            background-color: $color-coral-dark;
+
+            &::after {
+                background-color: $color-coral-dark;
+            }
+        }
+            &--blue{
+                background-color: $color-blue-dark;
+    
+                &::after {
+                    background-color: $color-blue-dark;
+                }
+            }
+
+        &::after {
+            content: "";
+            display: block;
+            height: 100%;
+            width: 100%;
+            border-radius: 10rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: all 0.4s;
+
+        }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-green-blue;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-green-blue;
+        padding: 3px;
+        transition: all .2s;
+    }
+
+    &:hover {
+        background-color: $color-green-blue;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .15);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+        transform: translateY(0);
+    }
+}
+
