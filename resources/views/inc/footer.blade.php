@@ -88,7 +88,7 @@
                                 <h3>Want news?</h3>
                             </div>
                             <div class="form__group">
-                                <input class="form__input" type="text" name="name" id="name-subscribe" placeholder="Name"required>
+                                <input class="form__input" type="text" name="name" id="name-subscribe" placeholder="Name" required>
                                 <label class="form__label" for="name-subscribe">Name</label>
                             </div>
 
@@ -148,26 +148,26 @@
                 </div>
 
                 <div class="form__group">
-                    <input class="form__input" type="text" name="username" id="newusername" placeholder="New username" required>
-                    <label class="form__label" for="newusername">New username</label>
+                    <input class="form__input" type="text" name="username" id="username_reg" placeholder="New username" required>
+                    <label class="form__label" for="username_reg">New username</label>
                 </div>
 
                 <div class="form__group">
-                    <input class="form__input" type="email" name="email" id="email-register" placeholder="E-mail" required>
-                    <label for="email-register" class="form__label">E-mail</label>
+                    <input class="form__input" type="email" name="email" id="email" placeholder="E-mail" required>
+                    <label for="email" class="form__label">E-mail</label>
                 </div>
 
                 <div class="form__group">
-                    <input class="form__input" type="password" name="password" id="register-password" placeholder="Password" required>
-                    <label for="register-password" class="form__label">Password</label>
+                    <input class="form__input" type="password" name="password" id="password_reg" placeholder="Password" required>
+                    <label for="password_reg" class="form__label">Password</label>
                 </div>
 
                 <div class="form__group">
-                    <input class="form__input" type="password" name="password_confirmation" id="confirm-password" placeholder="Confirm password" required>
-                    <label for="confirm-password" class="form__label">Confirm password</label>
+                    <input class="form__input" type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm password" required>
+                    <label for="password_confirmation" class="form__label">Confirm password</label>
                 </div>
                 <div class="form__group">
-                    <button type="submit" class="btn btn--coral">Register</button>
+                    <button id="btn_reg" type="submit" class="btn btn--coral">Register</button>
                 </div>
             </form>
         </div>

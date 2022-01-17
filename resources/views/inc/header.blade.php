@@ -59,8 +59,8 @@
             </div>
     
             <div class="form__group">
-              <button type="submit" class="btn btn--coral">Login</button>
-                <a href="#popup-register" class="btn-text u-margin-left-big">Register now</a>
+              <button type="submit" class="btn btn--coral" >Login</button>
+                <a href="#popup-register" class="btn-text u-margin-left-big" id="reg">Register now</a>
             </div>
         </form>
 @endauth  
@@ -94,7 +94,7 @@
     @auth
         @if (auth()->user()->admin == 0)
         <div class="header__donate-box">
-            <button class="btn btn--blue"><a href="#donate-popup" class="login__text"><span>{{ auth()->user()->donates->sum('amount') }}€ </span>donate</a></button>
+           <a href="#donate-popup" class="login__text btn btn--blue"><span>{{ auth()->user()->donates->sum('amount') }}€ </span>donate</a>
         </div>
         @endif
     @endauth

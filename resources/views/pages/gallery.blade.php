@@ -5,8 +5,10 @@
 @section('content')
     <section class="gallery">
         <div class="heading-primary articles__heading-primary u-margin-bottom-big">
-            <span class="heading-primary--main">Gallery</span>
-            <span class="heading-primary--sub">Look at the beauty</span>
+            <h2>
+                <span class="heading-primary--main">Gallery</span>
+                <span class="heading-primary--sub">Look at the beauty</span>
+            </h2>
         </div>
         <div class="gallery__wrapper">
             @if ($galleries->isEmpty())

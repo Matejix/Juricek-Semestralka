@@ -79,18 +79,25 @@
 
         &--green{
             color: $color-green-light;
+            cursor: pointer;
         }
 
         &--green2{
             color: $color-green-blue;
+            cursor: pointer;
         }
 
         &--blue{
             color: $color-blue;
+            cursor: pointer;
         }
 
         &--red{
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
             color: $color-coral-light;
+            cursor: pointer;
         }
     }
 

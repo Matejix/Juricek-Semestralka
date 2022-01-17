@@ -127,4 +127,16 @@
         display: flex;
         justify-content: space-around;
     }
+
+    &__messages {
+        background-color: $color-coral-lighter;
+        border: 1px solid $color-coral-dark;
+        color:$color-coral-dark;
+        display: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        padding: 1rem 2.5rem;
+        max-width: 30rem;
+    }
 }

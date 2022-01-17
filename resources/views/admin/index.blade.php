@@ -98,9 +98,8 @@
                                             @csrf
                                             @method('delete')
                 
-                                            <button type="submit">
-                                                <a class="table__content table__content--red" href="#popup-delete-animal"><i class="fas fa-paw"></i></a>
-                                            </button>
+                                                <button class="table__content table__content--red" type="submit"><i class="fas fa-paw"></i></button>
+                                            
                                         </form>
                                     </td>
                                 </tr>
@@ -138,9 +137,8 @@
                                             @csrf
                                             @method('delete')
                 
-                                            <button type="submit">
-                                                <a class="table__content table__content--red" href="#popup-delete-article"><i class="fas fa-text"></i></a>
-                                            </button>
+                                                <button class="table__content table__content--red" type="submit"><i class="fas fa-text"></i></button>
+                                            
                                         </form>
                                 </td>
                             </tr>
@@ -181,9 +179,8 @@
                                             @csrf
                                             @method('delete')
                 
-                                            <button type="submit">
-                                                <a class="table__content table__content--red" href="#popup-delete"><i class="far fa-trash-alt"></i></a>
-                                            </button>
+                                                <button class="table__content table__content--red" type="submit"><i class="far fa-trash-alt"></i></button>
+
                                         </form>
                                         
                                     </td>
@@ -231,9 +228,7 @@
                                         @csrf
                                         @method('delete')
             
-                                        <button type="submit">
-                                            <a class="table__content table__content--red" href="#popup-delete"><i class="far fa-trash-alt"></i></a>
-                                        </button>
+                                        <button class="table__content table__content--red" type="submit"><i class="far fa-trash-alt"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -279,9 +274,7 @@
                                         @csrf
                                         @method('delete')
             
-                                        <button type="submit">
-                                            <a class="table__content table__content--red" href="#"><i class="far fa-trash-alt"></i></a>
-                                        </button>
+                                        <button class="table__content table__content--red" type="submit"><i class="far fa-trash-alt"></i></button>
                                     </form>
                                 </td>
                             </tr>
