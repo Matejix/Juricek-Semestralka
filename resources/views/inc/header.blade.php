@@ -19,7 +19,7 @@
                         @endforeach
                     </ol>
                 </div>
-                @endif
+@endif
 <div class="login">
 @auth
         <span class="login__logged">
@@ -35,8 +35,7 @@
 
         <div class="login__background">&nbsp;</div>
 
-        <form action="{{ route("login") }}" class="login__form form" method="POST">
-            @csrf
+        <form id="loginForm" class="login__form form" method="POST">
             <div class="heading-tertiary u-margin-bottom-small">
                 <h3>Login form</h3>
             </div>
@@ -51,12 +50,14 @@
             </div>
     
             <div class="form__radio-group u-margin-bottom-medium">
-                <input class="form__radio-input" type="checkbox" name="loginRadio" id="loginRadio">
+                <input class="form__radio-input" type="checkbox" name="remember" id="loginRadio">
                 <label for="loginRadio" class="form__radio-label">
                     <span class="form__radio-button"></span>
                     Stay logged
                 </label>
             </div>
+
+            <div id="error_log_login" class="form-error-parent  u-margin-bottom-medium"></div>
     
             <div class="form__group">
               <button type="submit" class="btn btn--coral" >Login</button>

@@ -140,3 +140,18 @@
         max-width: 30rem;
     }
 }
+
+.form-error-parent{
+    background-color: $color-coral-dark;
+    border-radius: 6px;
+    p{
+        padding: 0.5rem 1rem;
+        font-size: 1.125rem;
+        font-weight: bold;
+        color:white;
+        margin-top: 6px;
+        &:nth-child(1){
+            margin-top: 0;
+        }
+    }
+}

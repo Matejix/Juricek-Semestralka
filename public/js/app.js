@@ -2068,6 +2068,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_slider__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _scrollTop__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scrollTop */ "./resources/js/scrollTop.js");
 /* harmony import */ var _scrollTop__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_scrollTop__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _register__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./register */ "./resources/js/register.js");
+
 
 
 
@@ -2090,6 +2092,109 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/register.js":
+/*!**********************************!*\
+  !*** ./resources/js/register.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+var register = document.querySelector("#registerForm");
+
+if (register) {
+  register.addEventListener("submit", function (e) {
+    var firstname = document.getElementById("firstname").value;
+    var lastname = document.getElementById("lastname").value;
+    var username = document.getElementById("username_reg").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password_reg").value;
+    var passConfirm = document.getElementById("password_confirmation").value;
+    var errorLog = document.getElementById("error_log");
+    e.preventDefault();
+
+    if (firstname === "" || lastname === "" || username === "" || email === "" || password === "" || passConfirm === "") {
+      console.log("EMPTY");
+      createError(["Please fill all fields"], errorLog);
+      return;
+    }
+
+    if (password !== passConfirm) {
+      createError(["Passwords do not match"], errorLog);
+      return;
+    }
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(location.origin + "/api/register", {
+      firstname: firstname,
+      lastname: lastname,
+      username: username,
+      email: email,
+      password: password,
+      password_confirmation: passConfirm
+    }).then(function (response) {
+      if (response.status === 200 && response.data.operation === "SUCCESS") {
+        createError([], errorLog); //location.replace(location.origin);
+      }
+
+      console.log(response);
+    })["catch"](function (error) {
+      console.log(error.response.data.errors);
+      var errors = error.response.data.errors;
+      createError(Object.values(errors), errorLog);
+    });
+  });
+}
+
+var login = document.querySelector("#loginForm");
+
+if (login) {
+  login.addEventListener("submit", function (e) {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var remember = document.getElementById("loginRadio").checked; // true / false;
+
+    var errorLog = document.getElementById("error_log_login");
+    e.preventDefault();
+
+    if (firstname === "" || password === "") {
+      console.log("EMPTY");
+      createError(["Please fill all fields"], errorLog);
+      return;
+    }
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default().post(location.origin + "/api/login", {
+      username: username,
+      password: password,
+      remember: remember
+    }).then(function (response) {
+      if (response.status === 200 && response.data.operation === "SUCCESS") {
+        createError([], errorLog); //location.replace(location.origin);
+      }
+
+      console.log(response);
+    })["catch"](function (error) {
+      console.log(error.response.data.errors);
+      var errors = error.response.data.errors;
+      createError(Object.values(errors), errorLog);
+    });
+  });
+}
+
+function createError(errors, errorLog) {
+  var html = "";
+
+  for (var index = 0; index < errors.length; index++) {
+    html += "<p>".concat(errors[index], "</p>");
+  }
+
+  errorLog.innerHTML = html;
+}
+
+/***/ }),
+
 /***/ "./resources/js/scrollTop.js":
 /*!***********************************!*\
   !*** ./resources/js/scrollTop.js ***!
@@ -2097,7 +2202,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (() => {
 
 var toTop = document.querySelector(".to-top");
-console.log(toTop);
 window.addEventListener("scroll", function () {
   if (window.pageYOffset > 100) {
     toTop.classList.add("active");

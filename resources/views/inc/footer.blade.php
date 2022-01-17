@@ -135,40 +135,42 @@
         <div class="popup__box">
             <a href="#header" class="popup__close">&times;</a>
             <h2 class="heading-secondary u-margin-bottom-medium">Register form</h2>
-            <form action="{{ route("register") }}" class="popup__form" method="POST">
-                @csrf
+            <form  class="popup__form" method="POST" id="registerForm">
+                
                 <div class="form__group">
-                    <input class="form__input" type="text" name="firstname" id="firstname" placeholder="Firstname" required>
+                    <input class="form__input" type="text" name="firstname" id="firstname" placeholder="Firstname">
                     <label class="form__label" for="firstname">Firstname</label>
                 </div>
 
                 <div class="form__group">
-                    <input class="form__input" type="text" name="lastname" id="lastname" placeholder="Lastname" required>
+                    <input class="form__input" type="text" name="lastname" id="lastname" placeholder="Lastname">
                     <label class="form__label" for="lastname">Lastname</label>
                 </div>
 
                 <div class="form__group">
-                    <input class="form__input" type="text" name="username" id="username_reg" placeholder="New username" required>
+                    <input class="form__input" type="text" name="username" id="username_reg" placeholder="New username">
                     <label class="form__label" for="username_reg">New username</label>
                 </div>
 
                 <div class="form__group">
-                    <input class="form__input" type="email" name="email" id="email" placeholder="E-mail" required>
+                    <input class="form__input" type="email" name="email" id="email" placeholder="E-mail">
                     <label for="email" class="form__label">E-mail</label>
                 </div>
 
                 <div class="form__group">
-                    <input class="form__input" type="password" name="password" id="password_reg" placeholder="Password" required>
+                    <input class="form__input" type="password" name="password" id="password_reg" placeholder="Password">
                     <label for="password_reg" class="form__label">Password</label>
                 </div>
 
                 <div class="form__group">
-                    <input class="form__input" type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm password" required>
+                    <input class="form__input" type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm password">
                     <label for="password_confirmation" class="form__label">Confirm password</label>
                 </div>
                 <div class="form__group">
                     <button id="btn_reg" type="submit" class="btn btn--coral">Register</button>
                 </div>
+
+                <div id="error_log"  class="form-error-parent"></div>
             </form>
         </div>
     </div>
