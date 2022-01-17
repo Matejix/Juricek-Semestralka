@@ -8,26 +8,6 @@ use Illuminate\Http\Request;
 class CommentController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -35,18 +15,19 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'content' => ['required', 'string'],
+            'article_id' => ['required', 'integer'],
+            'user_id' => ['required', 'integer']
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Comment $comment)
-    {
-        //
+        $comment = Comment::create([
+            'content' => $request->content,
+            'article_id' => $request->article_id,
+            'user_id' => $request->user_id,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -55,9 +36,9 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comment $comment)
+    public function edit(int $id)
     {
-        //
+        return view('pages.edit_Comment')->with('data',Comment::where('id',$id)->first());
     }
 
     /**
@@ -67,9 +48,18 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(Request $request, int $id)
     {
-        //
+        $request->validate([
+            'content' => ['required', 'string'],
+        ]);
+
+        $comment = Comment::where('id',$id)->update([
+            'content' => $request->content,
+        ]);
+
+        $data = Comment::where('id',$id)->first();
+        return redirect('/discover'.'/'.$data->article->animal->id.'#comments');
     }
 
     /**
@@ -78,8 +68,12 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy(int $id)
     {
-        //
+        $comment = Comment::where('id',$id)->first();
+        $data = Comment::where('id',$id)->first();
+        $comment->delete();
+        return redirect()->back();
+        //return redirect('/discover'.'/'.$data->article->animal->id.'#comments');
     }
 }

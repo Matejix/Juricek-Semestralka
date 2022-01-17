@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Animal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AnimalController extends Controller
 {
@@ -37,7 +38,7 @@ class AnimalController extends Controller
 
         $image = request()->file('image')->store('animals', ['disk' => 'public']);
 
-        $donate = Animal::create([
+        $animal = Animal::create([
             'latin_name' => $request->latin_name,
             'slovak_name' => $request->slovak_name,
             'lifespan' => $request->lifespan,
@@ -105,7 +106,8 @@ class AnimalController extends Controller
      */
     public function destroy(int $id)
     {
-        $animal = Animal::where('id',$id);
+        $animal = Animal::where('id',$id)->first();
+        Storage::disk('public')->delete($animal->image);
         $animal->delete();
         return redirect('/admin#animal');
     }

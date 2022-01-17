@@ -12,9 +12,9 @@
     <body class="admin-body">
             <div class="popup__content">
                 <div class="popup__box">
-                    <a href="#gallery" class="popup__close">&times;</a>
+                    <a href="/admin#gallery" class="popup__close">&times;</a>
                     <h2 class="heading-secondary u-margin-bottom-medium">Add photo</h2>
-                    <form action="#" class="popup__form" method="POST">
+                    <form action="{{ route('gallery.store') }}" class="popup__form" method="POST" enctype="multipart/form-data">
                         @csrf
                             <div class="form__group">
                                 <select name="animal_id" class="form__select u-margin-bottom-medium">
@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="form__group">
-                                <input class="form__input" type="file" name="photo" id="photo" placeholder="photo of animal" required>
+                                <input class="form__input" type="file" name="image" id="photo" placeholder="photo of animal" required>
                             </div>
 
                         <div class="form__group">

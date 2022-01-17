@@ -78,15 +78,15 @@
         -webkit-clip-path: polygon(0 0 , 100% 0, 100% 85%, 0 100%);
         clip-path: polygon(0 0 , 100% 0, 100% 85%, 0 100%);
         &--1 {
-            background-image: linear-gradient(to right bottom,  $color-green-dark, $color-green-light), url("/images/animal4-small.jpg");
+            background-image: linear-gradient(to right bottom,  $color-green-dark, $color-green-light);
         }
 
         &--2 {
-            background-image: linear-gradient(to right bottom,  $color-coral-dark, $color-coral-light), url("/images/animal3-small.jpg");
+            background-image: linear-gradient(to right bottom,  $color-coral-dark, $color-coral-light);
         }
 
         &--3 {
-            background-image: linear-gradient(to right bottom,  $color-blue-dark, $color-blue-light), url("/images/animal2-small.jpg");
+            background-image: linear-gradient(to right bottom,  $color-blue-dark, $color-blue-light);
         }
     }
 

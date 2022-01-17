@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Article;
+use App\Models\Gallery;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Animal extends Model
 {
@@ -21,7 +23,11 @@ class Animal extends Model
             'image',
     ];
 
-    public function articles(){
-        return $this->hasMany(Article::class);
+    public function article(){
+        return $this->belongsTo(Article::class);
+    }
+
+    public function galleries(){
+        return $this->hasMany(Gallery::class);
     }
 }

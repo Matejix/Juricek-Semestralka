@@ -49,7 +49,7 @@
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid ipsam ut incidunt nulla illum sit molestiae placeat, magnam aliquam
                     </p>
                     <div class="about__box-summary">
-                        <p class="box-summary__counter"><span class="box-summary__counter--number">23</span> dear subscribers</p>
+                        <p class="box-summary__counter"><span class="box-summary__counter--number">{{ $subscribers->count() }}</span> dear subscribers</p>
                     </div>
                 </div>
                 
@@ -69,12 +69,11 @@
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid ipsam ut incidunt nulla illum sit molestiae placeat, magnam aliquam
                     </p>
                     <div class="about__box-summary">
-                        <p class="box-summary__counter"><span class="box-summary__counter--number">7</span>Interesting articles</p>
+                        <p class="box-summary__counter"><span class="box-summary__counter--number">{{ $articles->count() }}</span>Interesting articles</p>
                     </div>
                 </div>
                 
             </div>
-
             <div class="about__box">
                 <div class="about__box-icon">
                     <i class="far fa-heart"></i>
@@ -89,7 +88,7 @@
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid ipsam ut incidunt nulla illum sit molestiae placeat, magnam aliquam
                     </p>
                     <div class="about__box-summary">
-                        <p class="box-summary__counter"><span class="box-summary__counter--number">1200€</span>in donates</p>
+                        <p class="box-summary__counter"><span class="box-summary__counter--number">{{ $donates->sum('amount') }}€</span>in donates</p>
                     </div>
                 </div>
                 

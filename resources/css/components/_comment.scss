@@ -105,6 +105,11 @@
         &--delete{
             display: inline-block;
             color: $color-coral-dark;
+            background: none;
+        box-shadow: none;
+        border: none;
+        font-size: 4rem;
+        cursor: pointer;
 
             &:hover {
                 transform: translateY(-1px) scale(1.1);

@@ -5,7 +5,10 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AnimalController;
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\Discover_MoreController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\SubscriberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +32,8 @@ Route::resource("donate", DonateController::class)->only(["index", "store"]); //
 Route::resource("animal", AnimalController::class)->only(["store", "destroy", "update", "create", "edit"]);
 Route::resource("article", ArticleController::class)->only(["store", "destroy", "update", "create", "edit"]);
 Route::resource("gallery", GalleryController::class)->only(["store", "destroy", "create"]);
+Route::resource("comment", CommentController::class)->only(["store", "destroy", "edit", 'update']);
+Route::resource("discover", Discover_MoreController::class)->only(["show"]);
+Route::resource("subscribe", SubscriberController::class)->only(["store","destroy"]);
 
 require __DIR__.'/auth.php';

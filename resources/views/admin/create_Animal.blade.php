@@ -1,3 +1,25 @@
+@if ($errors->any())
+                <div class="error-wrapper" 
+                style="background-color: orangered; 
+                        display:inline-block;
+                        position:fixed;
+                        top:74%;
+                        right:2%;
+                        font-size:meidum;
+                        z-index:10000;
+                        color:white;
+                        border-radius:9px;
+                        padding:15px;">
+                    <h2 class="error-wrapper-heading u-margin-bottom-small"><b>Form is filled wrong</b></h2>
+                    <ol class="error-wrapper-list">
+                        @foreach ($errors->all() as $error)
+                        <li>
+                            <p class="error-item">{{ $error }}</p>
+                        </li>
+                        @endforeach
+                    </ol>
+                </div>
+                @endif
 <!DOCTYPE html>
 <html lang="en">
 <head>

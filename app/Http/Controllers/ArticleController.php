@@ -29,10 +29,10 @@ class ArticleController extends Controller
     {
         $request->validate([
             'text' => ['required', 'string'],
-            'animal_id' => ['required'],
+            'animal_id' => ['required', 'integer'],
         ]);
 
-        $donate = Article::create([
+        $article = Article::create([
             'text' => $request->text,
             'animal_id' => $request->animal_id,
         ]);
@@ -62,7 +62,7 @@ class ArticleController extends Controller
     public function update(Request $request, int $id)
     {
         $request->validate([
-            'text' => ['required', 'string'],
+            'text' => ['required', 'text'],
         ]);
 
 

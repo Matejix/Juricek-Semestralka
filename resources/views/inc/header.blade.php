@@ -1,6 +1,16 @@
 @if ($errors->any())
-                <div class="error-wrapper">
-                    <h2 class="error-wrapper-heading">Form is filled wrong</h2>
+                <div class="error-wrapper" 
+                style="background-color: orangered; 
+                        display:inline-block;
+                        position:fixed;
+                        top:74%;
+                        right:2%;
+                        font-size:meidum;
+                        z-index:10000;
+                        color:white;
+                        border-radius:9px;
+                        padding:15px;">
+                    <h2 class="error-wrapper-heading u-margin-bottom-small"><b>Form is filled wrong</b></h2>
                     <ol class="error-wrapper-list">
                         @foreach ($errors->all() as $error)
                         <li>
@@ -84,7 +94,7 @@
     @auth
         @if (auth()->user()->admin == 0)
         <div class="header__donate-box">
-            <button class="btn btn--blue"><a href="#donate-popup" class="login__text"><span>{{ 0 }}€ </span>donate</a></button>
+            <button class="btn btn--blue"><a href="#donate-popup" class="login__text"><span>{{ auth()->user()->donates->sum('amount') }}€ </span>donate</a></button>
         </div>
         @endif
     @endauth

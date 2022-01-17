@@ -86,16 +86,25 @@
                             </tr>
                         </thead>
                         <tbody class="table__body">
-                            @foreach($animals as $animal)
-                            <tr class="table__row">
-                                <td class="table__content">{{ $animal['id'] }}</td>
-                                <td class="table__content">{{ $animal['slovak_name'] }}</td>
-                                <td class="table__content">
-                                    <a class="table__content table__content--green2" href="animal/{{ $animal['id'] }}/edit"><i class="far fa-edit"></i></a>
-                                    <a class="table__content table__content--red" href="#popup-delete-animal" data-delete-url="{{ $animal->id }}"><i class="fas fa-paw"></i></a>
-                                </td>
-                            </tr>
-                            @endforeach
+
+                                @foreach($animals as $animal)
+                                <tr class="table__row">
+                                    <td class="table__content">{{ $animal['id'] }}</td>
+                                    <td class="table__content">{{ $animal['slovak_name'] }}</td>
+                                    <td class="table__content">
+                                        <a class="table__content table__content--green2" href="animal/{{ $animal['id'] }}/edit"><i class="far fa-edit"></i></a>
+                                       
+                                        <form action="/animal/{{ $animal['id'] }}" method="POST" style="display:inline">
+                                            @csrf
+                                            @method('delete')
+                
+                                            <button type="submit">
+                                                <a class="table__content table__content--red" href="#popup-delete-animal"><i class="fas fa-paw"></i></a>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -118,17 +127,26 @@
                         </thead>
                         <tbody class="table__body">
 
+                            @if ($animals->isNotEmpty())
                             @foreach ($articles as $article)
                                 <tr class="table__row">
                                     <td class="table__content">{{ $article->animal->slovak_name }}</td>
                                     <td class="table__content">{{  Str::limit($article->text, 40) }}</td>
                                     <td class="table__content">
-                                        <a class="table__content table__content--green" href="/article/{{ $article['id'] }}/edit"><i class="fal fa-comment-edit"></i></a>
-                                        <a class="table__content table__content--red" href="#popup-delete-article"><i class="fas fa-text"></i></a>
+                                        <a class="table__content table__content--green" href="/article/{{ $article->id }}/edit"><i class="fal fa-comment-edit"></i></a>
+                                        <form action="/article/{{ $article['id'] }}" method="POST" style="display:inline">
+                                            @csrf
+                                            @method('delete')
+                
+                                            <button type="submit">
+                                                <a class="table__content table__content--red" href="#popup-delete-article"><i class="fas fa-text"></i></a>
+                                            </button>
+                                        </form>
                                 </td>
                             </tr>
                             @endforeach
-                            
+                            @endif
+
                         </tbody>
                     </table>
                 </div>
@@ -150,17 +168,28 @@
                             </tr>
                         </thead>
                         <tbody class="table__body">
-                            <tr class="table__row">
-                                <td class="table__content">
-                                    1
-                                </td>
-                                <td class="table__content">
-                                    <img src="#" alt="Nazov zvierata obrazok">
-                                </td>
-                                <td class="table__content">
-                                    <a class="table__content table__content--red" href="#popup-delete"><i class="far fa-trash-alt"></i></a>
-                                </td>
-                            </tr>
+                            @foreach ($galleries as $gallery)
+                                <tr class="table__row">
+                                    <td class="table__content">
+                                        {{ $gallery->id }}
+                                    </td>
+                                    <td class="table__content">
+                                        <img src="/storage/{{ $gallery->image }}" alt="{{ $gallery->animal->slovak_name }}" style="width:10rem">
+                                    </td>
+                                    <td class="table__content">
+                                        <form action="/gallery/{{ $gallery['id'] }}" method="POST" style="display:inline">
+                                            @csrf
+                                            @method('delete')
+                
+                                            <button type="submit">
+                                                <a class="table__content table__content--red" href="#popup-delete"><i class="far fa-trash-alt"></i></a>
+                                            </button>
+                                        </form>
+                                        
+                                    </td>
+                                </tr>
+                            @endforeach
+                            
                         </tbody>
                     </table>
                 </div>
@@ -184,20 +213,33 @@
                             </tr>
                         </thead>
                         <tbody class="table__body">
+
+                            @foreach ($comments as $comment)
+
                             <tr class="table__row">
                                 <td class="table__content">
-                                    1
+                                    {{ $comment->id }}
                                 </td>
                                 <td class="table__content">
-                                    username
+                                    {{ $comment->user->username }}
                                 </td>
                                 <td class="table__content">
-                                    obsah komentu
+                                    {{ $comment->content }}
                                 </td>
                                 <td class="table__content">
-                                    <a href="#popup-delete"><i class="far fa-trash-alt"></i></a>
+                                    <form action="/comment/{{ $comment['id'] }}" method="POST" style="display:inline">
+                                        @csrf
+                                        @method('delete')
+            
+                                        <button type="submit">
+                                            <a class="table__content table__content--red" href="#popup-delete"><i class="far fa-trash-alt"></i></a>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
+
+                            @endforeach
+                           
                         </tbody>
                     </table>
                 </div>
@@ -215,20 +257,35 @@
                                 <th class="table__heading">
                                     E-mail
                                 </th>
+                                <th class="table__heading">
+                                    Akcia
+                                </th>
                             </tr>
                         </thead>
                         <tbody class="table__body">
+                            @foreach ($subscribers as $subscriber)
                             <tr class="table__row">
                                 <td class="table__content">
-                                    1
+                                    {{ $subscriber->id }}
                                 </td>
                                 <td class="table__content">
-                                    Meno
+                                    {{ $subscriber->name }}
                                 </td>
                                 <td class="table__content">
-                                    email
+                                    {{ $subscriber->email }}
+                                </td>
+                                <td class="table__content">
+                                    <form action="/subscribe/{{ $subscriber['id'] }}" method="POST" style="display:inline">
+                                        @csrf
+                                        @method('delete')
+            
+                                        <button type="submit">
+                                            <a class="table__content table__content--red" href="#"><i class="far fa-trash-alt"></i></a>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -258,74 +315,32 @@
                             </tr>
                         </thead>
                         <tbody class="table__body">
+
+                            @foreach ($donates as $donate)
                             <tr class="table__row">
                                 <td class="table__content">
-                                    1
+                                    {{ $donate->id }}
                                 </td>
                                 <td class="table__content">
-                                    Meno
+                                    {{ $donate->user->firstname }}
                                 </td>
                                 <td class="table__content">
-                                    Priezvisko
+                                    {{ $donate->user->lastname }}
                                 </td>
                                 <td class="table__content">
-                                    username
+                                    {{ $donate->user->username }}
                                 </td>
                                 <td class="table__content">
-                                    email
+                                    {{ $donate->user->email }}
                                 </td>
                                 <td class="table__content">
-                                    0.00€
+                                    {{ $donate->amount }}.00€
                                 </td>
                             </tr>
+                            @endforeach
+                           
                         </tbody>
                     </table>
-                </div>
-            </div>
-        </div>
-
-        <div class="popup popup-delete" id="popup-delete-animal">
-            <div class="popup__content">
-                <div class="popup__box">
-                    <a href="#animal" class="popup__close">&times;</a>
-                    <h2 class="heading-secondary u-margin-bottom-medium">{{ $animal->slovak_name }}</h2>
-                        <form action="/animal/{{ $animal->id }}" method="POST">
-                            @csrf
-                            @method('delete')
-
-                            <button class="btn btn--coral" type="submit">
-                                Delete
-                            </button>
-                        </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="popup popup-delete" id="popup-delete-article">
-            <div class="popup__content">
-                <div class="popup__box">
-                    <a href="#article" class="popup__close">&times;</a>
-                    <h2 class="heading-secondary u-margin-bottom-small">Delete article</h2>
-                    <h2 class="heading-tertiary u-margin-bottom-medium">{{ $article->animal->slovak_name }}</h2>
-                        <form action="/article/{{ $article->id }}" method="POST">
-                            @csrf
-                            @method('delete')
-
-                            <button class="btn btn--coral" type="submit">
-                                Delete
-                            </button>
-                        </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="popup popup-delete" id="popup-delete-comment">
-            <div class="popup__content">
-                <div class="popup__box">
-                    <a href="#" class="popup__close">&times;</a>
-                    <h2 class="heading-secondary u-margin-bottom-medium">Uzivatel</h2>
-                        <a href="#" class="btn btn--green-blue">Poslať upozornenie emailom</a>
-                        <a href="#" class="btn btn--coral">delete</a>
                 </div>
             </div>
         </div>

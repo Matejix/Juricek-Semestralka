@@ -196,12 +196,12 @@
 
      &__comments {
         position: relative;
-        background-image: linear-gradient(to right bottom, rgba($color-black, 0.8), rgba($color-black, 0.8)), url("/images/animal4-big.jpg");
+        background-image: linear-gradient(to right bottom, rgba($color-black, 0.8), rgba($color-black, 0.8)), url("/images/comment_picture.jpg");
         background-attachment: fixed;
         background-size: cover;
         background-repeat: no-repeat;
         min-height: 90vh;
-        clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 98%);
+        clip-path: polygon(0 15rem, 100% 0, 100% 300rem, 0 100%);
         margin-top: -22vh;
         padding: 20rem 0;
 
